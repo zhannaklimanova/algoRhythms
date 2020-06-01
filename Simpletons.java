@@ -1,5 +1,7 @@
 package Java_algoRhythms;
 
+import java.util.Scanner;
+
 public class Simpletons {
 	
 	/* 
@@ -16,13 +18,48 @@ public class Simpletons {
 	 * charRightShift('#', 2) returns '#',
 	 * charRightShift('z', 27) returns 'a'.
 	 */
-	
 	public static char charRightShift(char c, int n) {
-//		if (n < 0) // do a try-catch for this or throw exception
+//		if (n < 0) // TODO a try-catch for this or throw exception
 		if (c >= 'a' && c <= 'z') {
 			return (char) positionFinder(c, n, 'z', 'a');
 		}
 		return c;
+	}
+	
+	/*
+	 * testInput takes String as input and outputs true if the input is 
+	 * equal to a user-chosen word. 
+	 */
+	public static boolean testInput(String input) {
+//		Scanner userInput = new Scanner(System.in);
+//		String userWord = userInput.next(); // TODO a scanner class thing later
+		String chosenWord = "turtle";
+		if (chosenWord.equals(input)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/* 
+	 * testInput overloaded with inputs String s and int i; returns true if the
+	 * character at index i is a vowel, false otherwise.
+	 */
+	public static boolean testInput(String s, int i) {
+		char letter = s.charAt(i); 
+		switch (letter) {
+		case 'a':
+			return true;
+		case 'e':
+			return true;
+		case 'i':
+			return true;
+		case 'o':
+			return true;
+		case 'u':
+			return true;
+		default: 
+			return false;
+		}
 	}
 	
 	/*
@@ -46,8 +83,8 @@ public class Simpletons {
 		if (counter == 0) return currentValue; 
 		
 		/*
-		 * We need to now split delta into 2 "equals" parts; if value is in lower range then we shift right, otherwise 
-		 * shift left. Algorithm is more efficient if the full range is split into multiple parts. 
+		 * We need to now split delta into 2 "equals" parts; if counter value is in lower range then we shift right, 
+		 * otherwise, shift left. Algorithm is more efficient if the full range is split into multiple parts. 
 		 */
 		
 		if (counter > 0 && counter <= (halfPoint)) {
