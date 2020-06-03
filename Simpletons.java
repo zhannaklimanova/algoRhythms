@@ -169,7 +169,8 @@ public class Simpletons {
 	/*
 	 * shiftByOne method takes an array as input and returns an array 
 	 * where all the elements have been moved up by one position. The
-	 * element at the end of the array should end up at teh beginning.
+	 * element at the end of the array should end up at the beginning.
+	 * Creating a new array
 	 * 
 	 * e.g.: 
 	 * initial array [2,4,6,8,1,2,3] => [3,2,4,6,8,1,2]
@@ -183,4 +184,40 @@ public class Simpletons {
 		}
 		return newArray;
 	}
+	
+	/*
+	 * shiftByOne2 method takes an array as input and returns an array 
+	 * where all the elements have been moved up by one position. The
+	 * element at the end of the array should end up at the beginning.
+	 * Not creating a new array
+	 * 
+	 * e.g.: 
+	 * initial array [2,4,6,8,1,2,3] => [3,2,4,6,8,1,2]
+	 */
+	
+	/*
+	 * intersection method takes two integer arrays as input and returns
+	 * an array corresponding to the intersection of the two arrays.
+	 */
+	
+	/*
+	 * isUpperCase takes a char as input and returns true if the char 
+	 * represents an upper-case letter of the English alphabet; returns 
+	 * false otherwise. 
+	 */
+	
+	/*
+	 * countUpper takes a String as input and counts how many characters are 
+	 * upper-case letters of the English alphabet. 
+	 */
+	
+	/*
+	 * toLowerCase takes a String as input and returns a String with the 
+	 * same characters, but converted to lower case.
+	 */
+	
+	/*
+	 * toLowerCase takes an array of chars as input and changes each char 
+	 * to lower-case.
+	 */
 }
