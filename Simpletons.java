@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Simpletons {
 	
 	/* 
+	 * Characters
 	 * charRightShift takes a character c and an integer n as inputs, 
 	 * and returns a character. If the character received as input
 	 * is a lower case letter of the English alphabet, the method
@@ -25,43 +26,7 @@ public class Simpletons {
 		}
 		return c;
 	}
-	
-	/*
-	 * testInput takes String as input and outputs true if the input is 
-	 * equal to a user-chosen word. 
-	 */
-	public static boolean testInput(String input) {
-//		Scanner userInput = new Scanner(System.in);
-//		String userWord = userInput.next(); // TODO a scanner class thing later
-		String chosenWord = "turtle";
-		if (chosenWord.equals(input)) {
-			return true;
-		}
-		return false;
-	}
-	
-	/* 
-	 * testInput overloaded with inputs String s and int i; returns true if the
-	 * character at index i is a vowel, false otherwise.
-	 */
-	public static boolean testInput(String s, int i) {
-		char letter = s.charAt(i); 
-		switch (letter) {
-		case 'a':
-			return true;
-		case 'e':
-			return true;
-		case 'i':
-			return true;
-		case 'o':
-			return true;
-		case 'u':
-			return true;
-		default: 
-			return false;
-		}
-	}
-	
+
 	/*
 	 * Helper method that can find a particular value in an interval of 
 	 * numbers e.g. [1,4]. The method will count backwards or forwards
@@ -116,5 +81,106 @@ public class Simpletons {
 		return currentValue;
 		
 	}
-
+	
+	/*
+	 * Characters
+	 * testInput takes String as input and outputs true if the input is 
+	 * equal to a user-chosen word. 
+	 */
+	public static boolean testInput(String input) {
+//		Scanner userInput = new Scanner(System.in);
+//		String userWord = userInput.next(); // TODO a scanner class thing later
+		String chosenWord = "turtle";
+		if (chosenWord.equals(input)) {
+			return true;
+		}
+		return false;
+	}
+	
+	/* 
+	 * Characters
+	 * testInput overloaded with inputs String s and int i; returns true if the
+	 * character at index i is a vowel, false otherwise.
+	 */
+	public static boolean testInput(String s, int i) {
+		char letter = s.charAt(i); 
+		switch (letter) {
+		case 'a':
+			return true;
+		case 'e':
+			return true;
+		case 'i':
+			return true;
+		case 'o':
+			return true;
+		case 'u':
+			return true;
+		default: 
+			return false;
+		}
+	}
+	
+	/* Arrays
+	 * findLargestValue takes an array of integers as input and 
+	 * returns the largest value in the array. 
+	 */
+	public static int findLargestValue(int[] array) { // TODO rewrite this using a sorting algorithm and then just take the last element
+		int currentVal = array[0]; // TODO for this algorithm throw exception if the array is null and its length is null
+		
+		for (int val: array) {
+			if (val > currentVal) {
+				currentVal = val;
+			}
+		}
+		return currentVal;
+	}
+	
+	/*
+	 * findPrimes takes a positive integer n as input and returns 
+	 * an array containing the first n primes.
+	 */
+	public static int[] findPrimes(int n) {
+		int[] primes = new int[n]; // TODO check for possible exceptions
+		int counter = 0;
+		int primeCounter = 2; 
+		
+		while (counter < n) {
+			if (isPrime(primeCounter)) {
+				primes[counter] = primeCounter;
+				counter++;
+			}
+			primeCounter++;
+		}
+		
+		return primes;
+	}
+	
+	/*
+	 * Helper method to determine if a number is prime.
+	 */
+	public static boolean isPrime(int number) {
+		if ((((number == 2) || (number == 3) || (number == 5) || (number == 7)) || 
+				((number % 2) != 0) && ((number % 3) != 0) && ((number % 5) != 0) && ((number % 7) != 0))) { 
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * shiftByOne method takes an array as input and returns an array 
+	 * where all the elements have been moved up by one position. The
+	 * element at the end of the array should end up at teh beginning.
+	 * 
+	 * e.g.: 
+	 * initial array [2,4,6,8,1,2,3] => [3,2,4,6,8,1,2]
+	 */
+	public static int[] shiftByOne(int[] array) {
+		int[] newArray = new int[array.length]; // create new array and populate it
+		newArray[0] = array[array.length - 1];
+		
+		for (int i = 1; i < newArray.length - 1; i++) {
+//			newArray[i] = 
+		}
+		return newArray;
+	}
 }
