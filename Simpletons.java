@@ -166,7 +166,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/*
+	/* Arrays
 	 * shiftByOne method takes an array as input and returns an array 
 	 * where all the elements have been moved up by one position. The
 	 * element at the end of the array should end up at the beginning.
@@ -175,17 +175,19 @@ public class Simpletons {
 	 * e.g.: 
 	 * initial array [2,4,6,8,1,2,3] => [3,2,4,6,8,1,2]
 	 */
-	public static int[] shiftByOne(int[] array) {
+	public static int[] shiftByOne(int[] array) { // this algorithm is not as efficient b/c I'm creating a new var called arrayCounter and updating it
 		int[] newArray = new int[array.length]; // create new array and populate it
-		newArray[0] = array[array.length - 1];
+		newArray[0] = array[array.length - 1]; 
+		int arrayCounter = 0;
 		
-		for (int i = 1; i < newArray.length - 1; i++) {
-//			newArray[i] = 
+		for (int newArrayCounter = 1; newArrayCounter <= newArray.length - 1; newArrayCounter++) {
+			newArray[newArrayCounter] = array[arrayCounter];
+			arrayCounter++;
 		}
 		return newArray;
 	}
 	
-	/*
+	/* Arrays
 	 * shiftByOne2 method takes an array as input and returns an array 
 	 * where all the elements have been moved up by one position. The
 	 * element at the end of the array should end up at the beginning.
@@ -194,30 +196,77 @@ public class Simpletons {
 	 * e.g.: 
 	 * initial array [2,4,6,8,1,2,3] => [3,2,4,6,8,1,2]
 	 */
+	public static int[] shiftByOne2(int[] array) {
+		int storedLastValue = array[array.length - 1]; 
+		int storeValue = 0;
+		
+		for (int i = array.length - 1; i >= 0; i--) {
+			if ((i - 1) < 0) {
+				break;
+			}
+			array[i] = array[i - 1];
+		}
+		array[0] = storedLastValue;
+		return array;
+	}
 	
-	/*
+	/* Arrays
 	 * intersection method takes two integer arrays as input and returns
 	 * an array corresponding to the intersection of the two arrays.
 	 */
+	public static int[] intersection(int[] array1, int[] array2) { // TODO errors here fix them
+		int[] intersectionArray = new int[0];
+		int counter = 0;
+		
+
+		for (int iValue: array1) {
+			for (int jValue: array2) {
+				if (iValue == jValue) {
+					increaseSize(intersectionArray);
+					intersectionArray[counter] = array1[iValue];
+					counter++;
+				}
+			}
+		}
+		return intersectionArray;
+	}
 	
-	/*
+	/* Arrays
+	 * Helper method to increase the size of an array by 1. Since arrays
+	 * are immutable, instead of using the ArrayList class this is the 
+	 * only way to do this.
+	 */
+	public static int[] increaseSize(int[] initialArray) {
+		int size = initialArray.length;
+		int[] newArray = new int[size + 1];
+		return newArray;
+	}
+	
+	/* Chars
 	 * isUpperCase takes a char as input and returns true if the char 
 	 * represents an upper-case letter of the English alphabet; returns 
 	 * false otherwise. 
 	 */
+	public static boolean isUpperCase(char c) {
+		if (c >= 'A' && c <= 'Z') {
+			return true;
+		}
+		return false;
+	}
 	
-	/*
+	/* Chars/Strings
 	 * countUpper takes a String as input and counts how many characters are 
 	 * upper-case letters of the English alphabet. 
 	 */
 	
-	/*
+	/* String
 	 * toLowerCase takes a String as input and returns a String with the 
 	 * same characters, but converted to lower case.
 	 */
 	
-	/*
+	/* Chars
 	 * toLowerCase takes an array of chars as input and changes each char 
 	 * to lower-case.
 	 */
+
 }
