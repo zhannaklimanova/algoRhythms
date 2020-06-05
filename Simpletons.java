@@ -12,7 +12,7 @@ public class Simpletons {
 	 */
 	
 	/* 
-	 * Characters
+	 * Characters#
 	 * charRightShift takes a character c and an integer n as inputs, 
 	 * and returns a character. If the character received as input
 	 * is a lower case letter of the English alphabet, the method
@@ -34,7 +34,7 @@ public class Simpletons {
 		return c;
 	}
 
-	/* Integers
+	/* Integers#
 	 * Helper method that can find a particular value in an interval of 
 	 * numbers e.g. [1,4]. The method will count backwards or forwards
 	 * in the range to find a specific value away from current value.
@@ -89,7 +89,7 @@ public class Simpletons {
 		
 	}
 	
-	/* Characters
+	/* Characters#
 	 * testInput takes String as input and outputs true if the input is 
 	 * equal to a user-chosen word. 
 	 */
@@ -103,7 +103,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* Characters
+	/* Characters#
 	 * testInput overloaded with inputs String s and int i; returns true if the
 	 * character at index i is a vowel, false otherwise.
 	 */
@@ -125,7 +125,7 @@ public class Simpletons {
 		}
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * findLargestValue takes an array of integers as input and 
 	 * returns the largest value in the array. 
 	 */
@@ -140,7 +140,7 @@ public class Simpletons {
 		return currentVal;
 	}
 	
-	/* Integers
+	/* Integers#
 	 * findPrimes takes a positive integer n as input and returns 
 	 * an array containing the first n primes.
 	 */
@@ -160,7 +160,7 @@ public class Simpletons {
 		return primes;
 	}
 	
-	/* Integers
+	/* Integers#
 	 * Helper method to determine if a number is prime.
 	 */
 	public static boolean isPrime(int number) {
@@ -171,7 +171,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * shiftByOne method takes an array as input and returns an array 
 	 * where all the elements have been moved up by one position. The
 	 * element at the end of the array should end up at the beginning.
@@ -192,7 +192,7 @@ public class Simpletons {
 		return newArray;
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * shiftByOne2 method takes an array as input and returns an array 
 	 * where all the elements have been moved up by one position. The
 	 * element at the end of the array should end up at the beginning.
@@ -215,7 +215,7 @@ public class Simpletons {
 		return array;
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * intersection method takes two integer arrays as input and returns
 	 * an array corresponding to the intersection of the two arrays.
 	 */
@@ -236,7 +236,7 @@ public class Simpletons {
 		return intersectionArray;
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * Helper method to increase the size of an array by 1. Since arrays
 	 * are immutable, instead of using the ArrayList class this is the 
 	 * only way to do this.
@@ -253,7 +253,7 @@ public class Simpletons {
 		return newArray;
 	}
 	
-	/* Arrays
+	/* Arrays#
 	 * Helper method check for duplicates and remove them. 
 	 */
 	public static boolean duplicateExists(int value, int[] array) {
@@ -265,7 +265,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* Characters
+	/* Characters#
 	 * isUpperCase takes a char as input and returns true if the char 
 	 * represents an upper-case letter of the English alphabet; returns 
 	 * false otherwise. 
@@ -277,7 +277,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* Characters/Strings
+	/* Characters# Strings#
 	 * countUpper takes a String as input and counts how many characters are 
 	 * upper-case letters of the English alphabet. 
 	 */
@@ -291,7 +291,7 @@ public class Simpletons {
 		return count;
 	}
 	
-	/* Characters/Strings
+	/* Characters# Strings#
 	 * toLowerCase takes a String as input and returns a String with the 
 	 * same characters, but converted to lower case.
 	 */ 
@@ -310,7 +310,7 @@ public class Simpletons {
 		return lowerCaseString;
 	}
 	
-	/* Characters
+	/* Characters#
 	 * toLowerCase takes an array of chars as input and changes each char 
 	 * to lower-case.
 	 */
