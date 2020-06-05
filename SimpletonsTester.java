@@ -55,6 +55,7 @@ public class SimpletonsTester {
 //		int[] array2 = {3,2,4,5,10,1,4,};
 //		int[] a = {1,2,3,4}; 
 //		int[] b = {4,3,2,1};
+//		System.out.println(Arrays.toString(Simpletons.intersection(array, array2))); // {2,4,5,1,3}
 //		System.out.println(Arrays.toString(Simpletons.intersection(a, b)));
 		
 //		// isUpperCase Tester
@@ -64,6 +65,14 @@ public class SimpletonsTester {
 //		System.out.println(Simpletons.isUpperCase(c)); // true
 //		System.out.println(Simpletons.isUpperCase(q)); // true
 //		System.out.println(Simpletons.isUpperCase(i)); // false 
+		
+//		// countUpper Tester
+//		String myString = "HELLO";
+//		System.out.println(Simpletons.countUpper(myString)); // 5
+		
+		// toLowerCase Tester
+//		String string = "HELLO";
+//		System.out.print(Simpletons.toLowerCase(string));
+		
 	}
-
 }

@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class Simpletons {
 	
+	/*
+	 * Include System.nanoTime() to time a method's execution before and 
+	 * after the method call and printing the difference in returned values.
+	 * (will return a value of type "long"). 
+	 * 
+	 */
+	
 	/* 
 	 * Characters
 	 * charRightShift takes a character c and an integer n as inputs, 
@@ -27,7 +34,7 @@ public class Simpletons {
 		return c;
 	}
 
-	/*
+	/* Integers
 	 * Helper method that can find a particular value in an interval of 
 	 * numbers e.g. [1,4]. The method will count backwards or forwards
 	 * in the range to find a specific value away from current value.
@@ -82,8 +89,7 @@ public class Simpletons {
 		
 	}
 	
-	/*
-	 * Characters
+	/* Characters
 	 * testInput takes String as input and outputs true if the input is 
 	 * equal to a user-chosen word. 
 	 */
@@ -97,8 +103,7 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* 
-	 * Characters
+	/* Characters
 	 * testInput overloaded with inputs String s and int i; returns true if the
 	 * character at index i is a vowel, false otherwise.
 	 */
@@ -135,7 +140,7 @@ public class Simpletons {
 		return currentVal;
 	}
 	
-	/*
+	/* Integers
 	 * findPrimes takes a positive integer n as input and returns 
 	 * an array containing the first n primes.
 	 */
@@ -155,7 +160,7 @@ public class Simpletons {
 		return primes;
 	}
 	
-	/*
+	/* Integers
 	 * Helper method to determine if a number is prime.
 	 */
 	public static boolean isPrime(int number) {
@@ -218,12 +223,12 @@ public class Simpletons {
 		int[] intersectionArray = new int[0];
 		int counter = 0;
 		
-
 		for (int iValue: array1) {
 			for (int jValue: array2) {
-				if (iValue == jValue) {
-					increaseSize(intersectionArray);
-					intersectionArray[counter] = array1[iValue];
+				if ((iValue == jValue) && (duplicateExists(iValue, intersectionArray) == false)) {
+					
+					intersectionArray = increaseSize(intersectionArray);
+					intersectionArray[counter] = iValue;
 					counter++;
 				}
 			}
@@ -239,10 +244,28 @@ public class Simpletons {
 	public static int[] increaseSize(int[] initialArray) {
 		int size = initialArray.length;
 		int[] newArray = new int[size + 1];
+		int counter = 0;
+		
+		for (int element: initialArray) {
+			newArray[counter] = element;
+			counter++;
+		}
 		return newArray;
 	}
 	
-	/* Chars
+	/* Arrays
+	 * Helper method check for duplicates and remove them. 
+	 */
+	public static boolean duplicateExists(int value, int[] array) {
+		for (int element: array) {
+			if (element == value) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/* Characters
 	 * isUpperCase takes a char as input and returns true if the char 
 	 * represents an upper-case letter of the English alphabet; returns 
 	 * false otherwise. 
@@ -254,19 +277,49 @@ public class Simpletons {
 		return false;
 	}
 	
-	/* Chars/Strings
+	/* Characters/Strings
 	 * countUpper takes a String as input and counts how many characters are 
 	 * upper-case letters of the English alphabet. 
 	 */
+	public static int countUpper(String input) {
+		int count = 0;
+		for (int i = 0; i < input.length(); i++) {
+			if (isUpperCase(input.charAt(i))) {
+				count++;
+			}
+		}
+		return count;
+	}
 	
-	/* String
+	/* Characters/Strings
 	 * toLowerCase takes a String as input and returns a String with the 
 	 * same characters, but converted to lower case.
-	 */
+	 */ 
+	public static String toLowerCase(String input) {
+		String lowerCaseString = ""; 
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (isUpperCase(c)) {
+				c = (char) (c + 32); // narrowing because we're going from int => char
+				lowerCaseString += c;
+			}
+			else {
+				lowerCaseString += c;
+			}
+		}
+		return lowerCaseString;
+	}
 	
-	/* Chars
+	/* Characters
 	 * toLowerCase takes an array of chars as input and changes each char 
 	 * to lower-case.
 	 */
+	public static void toLowerCase2(char[] characters) {
+		for (int i = 0; i < characters.length; i++) {
+			if (isUpperCase(characters[i])) {
+				characters[i] = (char) (characters[i] + 32); // narrowing because we're going from int => char
+			}
+		}
+	}
 
 }
