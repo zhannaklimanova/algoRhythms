@@ -27,10 +27,14 @@ public class Simpletons {
 	 * charRightShift('z', 27) returns 'a'.
 	 */
 	public static char charRightShift(char c, int n) {
-//		if (n < 0) // TODO a try-catch for this or throw exception
+		if ((n < 0)) {
+			throw new IllegalArgumentException("Invalid input: shift amount 'n' cannot be negative");
+		}
+		
 		if (c >= 'a' && c <= 'z') {
 			return (char) positionFinder(c, n, 'z', 'a');
 		}
+		
 		return c;
 	}
 
@@ -94,9 +98,11 @@ public class Simpletons {
 	 * equal to a user-chosen word. 
 	 */
 	public static boolean testInput(String input) {
-//		Scanner userInput = new Scanner(System.in);
-//		String userWord = userInput.next(); // TODO a scanner class thing later
-		String chosenWord = "turtle";
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Please input a word ");
+		String chosenWord = userInput.next(); 
+		userInput.close(); // Scanner needs to be closed once its used 
+		
 		if (chosenWord.equals(input)) {
 			return true;
 		}
@@ -130,6 +136,10 @@ public class Simpletons {
 	 * returns the largest value in the array. 
 	 */
 	public static int findLargestValue(int[] array) { // TODO rewrite this using a sorting algorithm and then just take the last element
+		if (array == null) {
+			throw new NullPointerException("The input is incorrect; it must be a non-null array of a certain size");
+		}
+		
 		int currentVal = array[0]; // TODO for this algorithm throw exception if the array is null and its length is null
 		
 		for (int val: array) {
@@ -137,6 +147,7 @@ public class Simpletons {
 				currentVal = val;
 			}
 		}
+		
 		return currentVal;
 	}
 	
@@ -218,10 +229,11 @@ public class Simpletons {
 	/* Arrays#
 	 * intersection method takes two integer arrays as input and returns
 	 * an array corresponding to the intersection of the two arrays.
+	 * This is a linear search in a way. It is also possible to sort.
 	 */
-	public static int[] intersection(int[] array1, int[] array2) { // TODO errors here fix them
+	public static int[] intersection(int[] array1, int[] array2) { // TODO errors here fix them (put break after comparison, b/c it makes it not run over entire array if value is found)
 		int[] intersectionArray = new int[0];
-		int counter = 0;
+		int counter = 0; // TODO you can do binary search
 		
 		for (int iValue: array1) {
 			for (int jValue: array2) {
@@ -321,5 +333,60 @@ public class Simpletons {
 			}
 		}
 	}
+	
+	/* Integers#
+	 * radomGenerator displays 10 random integers between 0 and 50. Method creates
+	 * a random object without a seed.
+	 */
+	
+	/* Integers#
+	 * randomSeedGenerator that displays 10 random integers between 0 and 50. Method creates
+	 * a random object with a seed. 
+	 */
+	
+	/* Arrays# Multidimensional
+	 * isMatrix takes a 2D integer array as input and returns a boolean value. 
+	 * The method returns true if the 2D array can be read as a matrix, that is, 
+	 * each integer array has the same number of elements. The method returns 
+	 * false otherwise. 
+	 * 
+	 * e.g.: 
+	 * int[][] num1 = {{1,2,3}, {5,6,}, {8});
+	 * int[][] num2 = {{2,2}, {0,6}, {8,9}}; 
+	 * isMatrix(num1) returns false
+	 * isMatrix(num2) returns true
+	 */
+	
+	/* Arrays#
+	 * getColumn takes a 2D integer array representing a matrix and an integer i, 
+	 * and returns an integer array with all the elements in the i-th column.
+	 * 
+	 * e.g.:
+	 * int[][] matrix = {{2,3,}, {5,6}, {8,9}};
+	 * getColumn(matrix, 0) returns {2,5,8}
+	 */
+	
+	/* Arrays# Multidimensional
+	 * sumMatrix takes two 2D integer arrays as input with the same dimensions.
+	 * The method returns a new 2D integer array corresponding to their sum.
+	 * 
+	 * e.g.: 
+	 * int[][] matrix1 = {{2,3}, {5,1}};
+	 * int[][] matrix2 = {{-1,5}, 2,-4}};
+	 * sumMatrix(matrix1, matrix2) returns {{1,8}, {7,-3}};
+	 */
+	
+	/* Arrays# Multidimensional
+	 * dotProduct takes as input two integer arrays of the same dimension, say m, 
+	 * and returns teh dot product between the two: sigma(i = 0...m) ai * bi. 
+	 */
+	
+	/* Arrays# Multidimensional
+	 * multiplyMatrix takes two 2D integer arrays as input. The method verifies that 
+	 * the two input represent matrices and that the number of columns of the first 
+	 * one represent matrices and that the number of rows of the second one. Then the
+	 * method should return a new 2D integer array corresponding to their product. 
+	 * Method uses getColumn and dotProduct to compute their product.
+	 */
 
 }
