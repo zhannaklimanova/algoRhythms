@@ -1,5 +1,6 @@
 package Java_algoRhythms;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Simpletons {
@@ -115,6 +116,7 @@ public class Simpletons {
 	 */
 	public static boolean testInput(String s, int i) {
 		char letter = s.charAt(i); 
+		
 		switch (letter) {
 		case 'a':
 			return true;
@@ -139,8 +141,7 @@ public class Simpletons {
 		if (array == null) {
 			throw new NullPointerException("The input is incorrect; it must be a non-null array of a certain size");
 		}
-		
-		int currentVal = array[0]; // TODO for this algorithm throw exception if the array is null and its length is null
+		int currentVal = array[0]; 
 		
 		for (int val: array) {
 			if (val > currentVal) {
@@ -214,7 +215,6 @@ public class Simpletons {
 	 */
 	public static int[] shiftByOne2(int[] array) {
 		int storedLastValue = array[array.length - 1]; 
-		int storeValue = 0;
 		
 		for (int i = array.length - 1; i >= 0; i--) {
 			if ((i - 1) < 0) {
@@ -295,6 +295,7 @@ public class Simpletons {
 	 */
 	public static int countUpper(String input) {
 		int count = 0;
+		
 		for (int i = 0; i < input.length(); i++) {
 			if (isUpperCase(input.charAt(i))) {
 				count++;
@@ -309,6 +310,7 @@ public class Simpletons {
 	 */ 
 	public static String toLowerCase(String input) {
 		String lowerCaseString = ""; 
+		
 		for (int i = 0; i < input.length(); i++) {
 			char c = input.charAt(i);
 			if (isUpperCase(c)) {
@@ -335,14 +337,32 @@ public class Simpletons {
 	}
 	
 	/* Integers#
-	 * radomGenerator displays 10 random integers between 0 and 50. Method creates
+	 * randomGenerator displays 10 random integers between 0 and 50. Method creates
 	 * a random object without a seed.
 	 */
+	public static void randomGenerator() {
+		Random number = new Random();
+		int quantity = 10;
+		
+		while (quantity > 0) {
+			System.out.println(number.nextInt(51));
+			quantity--;
+		}
+	}
 	
 	/* Integers#
 	 * randomSeedGenerator that displays 10 random integers between 0 and 50. Method creates
 	 * a random object with a seed. 
 	 */
+	public static void randomSeedGenerator(int seed) {
+		Random number = new Random(seed);
+		int quantity = 10;
+		
+		while (quantity > 0) {
+			System.out.println(number.nextInt(51));
+			quantity--;
+		}
+	}
 	
 	/* Arrays# Multidimensional
 	 * isMatrix takes a 2D integer array as input and returns a boolean value. 
@@ -351,20 +371,51 @@ public class Simpletons {
 	 * false otherwise. 
 	 * 
 	 * e.g.: 
-	 * int[][] num1 = {{1,2,3}, {5,6,}, {8});
+	 * int[][] num1 = {{1,2,3}, {5,6}, {8}};
 	 * int[][] num2 = {{2,2}, {0,6}, {8,9}}; 
 	 * isMatrix(num1) returns false
 	 * isMatrix(num2) returns true
 	 */
+	public static boolean isMatrix(int[][] array2D) {
+		int length = array2D[0].length;
+		
+		for (int[] array: array2D) {
+			if (length != array.length) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	/* Arrays#
 	 * getColumn takes a 2D integer array representing a matrix and an integer i, 
 	 * and returns an integer array with all the elements in the i-th column.
 	 * 
 	 * e.g.:
-	 * int[][] matrix = {{2,3,}, {5,6}, {8,9}};
+	 * int[][] matrix = {{2,3}, {5,6}, {8,9}};
 	 * getColumn(matrix, 0) returns {2,5,8}
 	 */
+	public static int[] getColumn(int[][] array2D, int i) {
+		if (i < 0) {
+			throw new IndexOutOfBoundsException("Wrong index value");
+		}
+		int[] ithColumnElements = new int[0];
+		int j = 0;
+		
+		for (int[] array: array2D) {
+			try {
+				if (array[i] != 0) {
+					ithColumnElements = increaseSize(ithColumnElements);
+					ithColumnElements[j] = array[i];
+					j++;
+				}
+			}
+			catch (Exception e) {
+				System.out.println("There is no elements in this column");
+			}	
+		}
+		return ithColumnElements;
+	}
 	
 	/* Arrays# Multidimensional
 	 * sumMatrix takes two 2D integer arrays as input with the same dimensions.
@@ -372,13 +423,51 @@ public class Simpletons {
 	 * 
 	 * e.g.: 
 	 * int[][] matrix1 = {{2,3}, {5,1}};
-	 * int[][] matrix2 = {{-1,5}, 2,-4}};
+	 * int[][] matrix2 = {{-1,5}, {2,-4}};
 	 * sumMatrix(matrix1, matrix2) returns {{1,8}, {7,-3}};
 	 */
+	public static int[][] sumMatrix(int[][] array1, int[][] array2) { 
+
+		if (!(isMatrix(array1) || isMatrix(array2)) || (canAdd(array1) != canAdd(array2))) { // TODO handle case when matrix is 0
+			throw new IllegalArgumentException("Invalid inputs");
+		}
+		int[][] addedArray = new int[array1.length][array1[0].length];
+
+		for (int indexRow = 0; indexRow < array1.length; indexRow++) {
+			for (int indexColumn = 0; indexColumn < array1[indexRow ].length; indexColumn++) {
+				addedArray[indexRow][indexColumn] = array1[indexRow][indexColumn] + array2[indexRow][indexColumn];
+			}
+		}
+		return addedArray;
+	}
+	
+	/* Arrays# Multidimensional
+	 * Helper method that can check whether there is an equal amount of elements
+	 * inside each element of a 2D array. 
+	 * 
+	 * e.g.:
+	 * int[][] badMatrix1 = {{2,3,4}, {5,1,3}};
+	 * int[][] badMatrix2 = {{-1,5}, {2,-4}};
+	 * The two matrices above are matrices but cannot be added together because
+	 * one has 3 elements in each interior array and the other has 2 elements
+	 * in each interior array.
+	 */
+	public static int canAdd(int[][] array) {
+		int quantity = 0;
+		
+		if (isMatrix(array)) {
+			for (int[] row: array) {
+				for (quantity = 0; quantity < row.length; quantity++) {
+				}
+			}
+		} 
+		return quantity;
+		
+	}
 	
 	/* Arrays# Multidimensional
 	 * dotProduct takes as input two integer arrays of the same dimension, say m, 
-	 * and returns teh dot product between the two: sigma(i = 0...m) ai * bi. 
+	 * and returns the dot product between the two: sigma(i = 0...m) ai * bi. 
 	 */
 	
 	/* Arrays# Multidimensional
