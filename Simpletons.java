@@ -157,7 +157,10 @@ public class Simpletons {
 	 * an array containing the first n primes.
 	 */
 	public static int[] findPrimes(int n) {
-		int[] primes = new int[n]; // TODO check for possible exceptions
+		if (n < 0) {
+			throw new IllegalArgumentException("You cannot have a negative number of primes"); 
+		}
+		int[] primes = new int[n]; 
 		int counter = 0;
 		int primeCounter = 2; 
 		
@@ -231,7 +234,7 @@ public class Simpletons {
 	 * an array corresponding to the intersection of the two arrays.
 	 * This is a linear search in a way. It is also possible to sort.
 	 */
-	public static int[] intersection(int[] array1, int[] array2) { // TODO errors here fix them (put break after comparison, b/c it makes it not run over entire array if value is found)
+	public static int[] intersection(int[] array1, int[] array2) { 
 		int[] intersectionArray = new int[0];
 		int counter = 0; // TODO you can do binary search
 		
@@ -242,6 +245,7 @@ public class Simpletons {
 					intersectionArray = increaseSize(intersectionArray);
 					intersectionArray[counter] = iValue;
 					counter++;
+					break;
 				}
 			}
 		}
@@ -404,11 +408,9 @@ public class Simpletons {
 		
 		for (int[] array: array2D) {
 			try {
-				if (array[i] != 0) {
-					ithColumnElements = increaseSize(ithColumnElements);
-					ithColumnElements[j] = array[i];
-					j++;
-				}
+				ithColumnElements = increaseSize(ithColumnElements);
+				ithColumnElements[j] = array[i];
+				j++;
 			}
 			catch (Exception e) {
 				System.out.println("There is no elements in this column");
@@ -427,8 +429,7 @@ public class Simpletons {
 	 * sumMatrix(matrix1, matrix2) returns {{1,8}, {7,-3}};
 	 */
 	public static int[][] sumMatrix(int[][] array1, int[][] array2) { 
-
-		if (!(isMatrix(array1) || isMatrix(array2)) || (canAdd(array1) != canAdd(array2))) { // TODO handle case when matrix is 0
+		if (!(isMatrix(array1) || isMatrix(array2)) || (canAdd(array1) != canAdd(array2))) { 
 			throw new IllegalArgumentException("Invalid inputs");
 		}
 		int[][] addedArray = new int[array1.length][array1[0].length];
@@ -442,7 +443,7 @@ public class Simpletons {
 	}
 	
 	/* Arrays# Multidimensional
-	 * Helper method that can check whether there is an equal amount of elements
+	 * Helper method that checks whether there is an equal amount of elements
 	 * inside each element of a 2D array. 
 	 * 
 	 * e.g.:
@@ -468,14 +469,47 @@ public class Simpletons {
 	/* Arrays# Multidimensional
 	 * dotProduct takes as input two integer arrays of the same dimension, say m, 
 	 * and returns the dot product between the two: sigma(i = 0...m) ai * bi. 
+	 *
+	 * e.g.:
+	 * int[] array1 = {2,4,1};
+	 * int[] array2 = {1,5,9};
+	 * dotProduct(array1, array2) returns 2*1 + 4*5 + 1*9 = 31
 	 */
+	public static int dotProduct(int[] array1, int[] array2) {
+		if (array1.length != array2.length) {
+			throw new IllegalArgumentException("The matrices you entered cannot be dotProduct together, as they are not of the same dimension");
+		}
+		int product = 0; 
+		for (int i = 0; i < array1.length; i++) {
+			product += array1[i] * array2[i];
+		}
+		return product;
+	}
 	
 	/* Arrays# Multidimensional
 	 * multiplyMatrix takes two 2D integer arrays as input. The method verifies that 
-	 * the two input represent matrices and that the number of columns of the first 
-	 * one represent matrices and that the number of rows of the second one. Then the
+	 * the two inputs represent matrices and that the number of columns of the first 
+	 * one is equal to number of rows of the second one. Then the
 	 * method should return a new 2D integer array corresponding to their product. 
 	 * Method uses getColumn and dotProduct to compute their product.
 	 */
+	public static int[][] multiplyMatrix(int[][] array1, int[][] array2) {
+		if (!(isMatrix(array1) && (isMatrix(array2)))) {
+			throw new IllegalArgumentException("The inputs you entered do not represent matrices"); 
+		}
+		else if ((array1[0].length) != (getColumn(array2, 0).length)) {
+			throw new IllegalArgumentException("The two matrices cannot be multiplied together because the number of columns of the first \n" + 
+					"one are not equal to number of rows of the second one."); 
+		}
+		
+		int[][] multipliedMatrix = new int[array1.length][array2[0].length]; // or array1[0].length
+		
+		for (int row = 0; row < multipliedMatrix.length; row++) {
+			for (int col = 0; col < multipliedMatrix[0].length; col++) {
+				multipliedMatrix[row][col] = Simpletons.dotProduct(array1[row], getColumn(array2, col));
+			}
+		}
+		return multipliedMatrix;
+	}
 
 }

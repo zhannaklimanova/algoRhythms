@@ -91,14 +91,29 @@ public class SimpletonsTester {
 //		System.out.println(Arrays.toString(Simpletons.getColumn(matrix, -2))); // returns {2,5,8}
 		 
 		// sumMatrix Tester 
-		int[][] matrix1 = {{2,3}, {5,1}};
-		int[][] matrix2 = {{-1,5}, {2,-4}};
-		int[][] badMatrix1 = {{2,3,4}, {5,1,3}};
-		int[][] badMatrix2 = {{-1,5}, {2,-4}};
-		int[][] kk = new int[0][0];
-		int[][] jj = new int[0][0];
-		System.out.println(Arrays.deepToString(Simpletons.sumMatrix(matrix1, matrix2))); // returns {{1,8}, {7,-3}}
+//		int[][] matrix1 = {{2,3}, {5,1}};
+//		int[][] matrix2 = {{-1,5}, {2,-4}};
+//		int[][] badMatrix1 = {{2,3,4}, {5,1,3}};
+//		int[][] badMatrix2 = {{-1,5}, {2,-4}};
+//		int[][] kk = {{0,0}, {0,0}, {0,0}};
+//		int[][] jj = {{0,0}, {0,0}, {0,0}};
+//		System.out.println(Arrays.deepToString(Simpletons.sumMatrix(matrix1, matrix2))); // returns {{1,8}, {7,-3}}
 //		System.out.println(Arrays.deepToString(Simpletons.sumMatrix(kk,jj)));
 
+		// dotProduct Tester
+//		int[] matx1 = {2,4,1}; 
+//		int[] matx2 = {1,5,9}; 
+//		System.out.println(Simpletons.dotProduct(matx1, matx2)); // returns 31
+		
+		// multiplyMatrix Tester 
+//      int[][] a = {{1,4,6,10},{2,7,5,3}};
+//      int[][] b = {{1,4,6},{2,7,5},{9,0,11},{3,1,0}};
+//		int[][] test1 = {{1,2,3}, {4,5,6}};
+//		int[][] test2 = {{6,3}, {5,2}, {4,1}};
+//		int[][] zero1 = {{0,0}, {0,0}};
+//		int[][] zero2 = {{0,0}, {0,0}};
+//		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(test1, test2)));
+//		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(a, b)));
+//		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(zero1, zero2)));
     }
 }
