@@ -8,4 +8,5 @@
 2. Strings#
 3. Arrays#
 4. Multidimentsion# => for matrix problems
+5. Helper => aids other methods 
 
