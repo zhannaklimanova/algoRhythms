@@ -106,8 +106,8 @@ public class SimpletonsTester {
 //		System.out.println(Simpletons.dotProduct(matx1, matx2)); // returns 31
 		
 		// multiplyMatrix Tester 
-//      int[][] a = {{1,4,6,10},{2,7,5,3}};
-//      int[][] b = {{1,4,6},{2,7,5},{9,0,11},{3,1,0}};
+//		int[][] a = {{1,4,6,10},{2,7,5,3}};
+//		int[][] b = {{1,4,6},{2,7,5},{9,0,11},{3,1,0}};
 //		int[][] test1 = {{1,2,3}, {4,5,6}};
 //		int[][] test2 = {{6,3}, {5,2}, {4,1}};
 //		int[][] zero1 = {{0,0}, {0,0}};
@@ -115,5 +115,28 @@ public class SimpletonsTester {
 //		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(test1, test2)));
 //		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(a, b)));
 //		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(zero1, zero2)));
-    }
+		
+		// reverse Tester
+//		int[] a = {1, 2, 3, 4};
+//		int[] b = {6,5,4,3,2,1,0};
+//		System.out.println(Arrays.toString(Simpletons.reverse(a)));
+//		System.out.println(Arrays.toString(Simpletons.reverse(b)));
+		
+		// remove Tester 
+//		int[] i = {1,2,3,4,5};
+//		int[] j = {1,2,3,4,5};
+//		System.out.println(Arrays.toString(Simpletons.remove(i, 2))); // returns 1,3,4,5
+//		System.out.println(Arrays.toString(Simpletons.remove(j, 5))); // returns 1,2,3,4
+		
+		// add Tester
+//		int[] u = {1,2,3,4,5};
+//		System.out.println(Arrays.toString(Simpletons.add(u, 1, 99)));
+//		System.out.println(Arrays.toString(Simpletons.add(u, 4, 99)));
+		
+		// addToEnd Tester 
+//		int[] o = {1,2,3,4,5};
+//		System.out.println((Arrays.toString(Simpletons.addToEnd(o, 99))));
+	
+	}
+	
 }

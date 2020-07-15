@@ -511,5 +511,109 @@ public class Simpletons {
 		}
 		return multipliedMatrix;
 	}
+	
+	/* Arrays#
+	 * reverse reverses the elements of an array list, which uses a constant amount 
+	 * of additional space. A new array cannot be created, but the elements within the 
+	 * original array must be reversed. 
+	 */
+	public static int[] reverse(int[] array) {
+		for (int i = 0; i < array.length/2; i++) {
+			swap(array, i, array.length-1-i);
+		}
+		return array;
+	}
+	
+	/* Arrays# Integers#
+	 * swap switches element positions 
+	 * 
+	 * e.g.
+	 * 5 6 => 6 5 
+	 */
+	public static void swap(int[] array, int i, int j) {
+		int tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+	}
 
+	
+	/* Arrays# Integers#
+	 * remove removes the first instance of a given object e in a list/array, 
+	 * assuming the list is represented as an array list and the size of the 
+	 * list is N (meaning the array is completely full).
+	 */
+	public static int[] remove(int[] array, int element) {
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == element) {
+				shiftUp(array, i);
+				break;
+			}
+		}
+		return newArray(array);
+	 }
+	 
+	 /* Arrays# Integers#
+	  * Helper method shiftUp shifts the elements to remove an unwanted element and enforce
+	  * that there is no empty spots.
+	  */
+	 public static void shiftUp(int[] array, int elementID) {
+		 if (elementID >= 0) {
+			 if (elementID < array.length-1) {
+				 for (int i = elementID; i < array.length-1; i++) {
+					 array[i] = array[i+1];
+				 }
+				 array[array.length-1 ] = 0;
+			 }
+			 else {
+				 array[elementID] = 0; // case when elementID is at the final element in the array
+			 }
+		 }
+	 }
+	 
+	 /* Arrays# Integers#
+	  * Helper method newArray makes a new smaller array 
+	  */
+	 public static int[] newArray(int[] array) {
+		 int[] newArray = new int[array.length - 1];
+		 
+		 for (int i = 0; i < newArray.length; i++) {
+			 newArray[i] = array[i];
+		 }
+		 return newArray;
+	 }
+	 
+	 /* Arrays# Integers#
+	  * add method creates a bigger array twice as large, and adds an 
+	  * element to it while copying all the previous array elements at 
+	  * at the same time. Assuming that the array is full 
+	  * (size == array.length).
+	  */
+	 public static int[] add(int[] array, int elementID, int element) {
+		 int[] newArray = new int[array.length * 2];
+		 
+		 if (elementID < array.length) {
+			 for (int i = 0, j = 0; i < array.length; i++, j++) {
+				 if (i == elementID) {
+					 newArray[i] = element;
+					 j++;
+				 }
+				 newArray[j] = array[i];
+			 }
+		 }
+		 return newArray;
+	 }
+	 
+	 /* Arrays# Integers#
+	  * addToEnd method adds an element to the end of a list/array. 
+	  * Assuming that the array is full (size == array.length). 
+	  */
+	 public static int[] addToEnd(int[] array, int element) {
+		 int[] newArray = new int[array.length * 2];
+		 
+		 for (int i = 0; i < array.length; i++) {
+			 newArray[i] = array[i];
+		 }
+		 newArray[array.length] = element;
+		 return newArray;
+	 }
 }
