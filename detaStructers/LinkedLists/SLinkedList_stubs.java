@@ -35,7 +35,7 @@ public class SLinkedList_stubs<E>  {
 	    size  = 0;
 	}
 	
-	// code written by Zhanna Klimanova
+	/** @author zhanna klimanova **/
 	public int getSize() { 
 		return this.size;
 	}
@@ -59,7 +59,7 @@ public class SLinkedList_stubs<E>  {
 		else if (i == size){        //  Both necessary to do this test.  Only do it because 
 			addLast(element);       //  it is more efficient than what is below.
 		}
-		else { // code written by Zhanna Klimanova
+		else {  /** @author zhanna klimanova **/
 			SNode<E> elementToAdd = new SNode<E>(element);
 			SNode<E> elementBeforeI = getNode(i-1);
 			elementToAdd.next = elementBeforeI.next;
@@ -164,7 +164,7 @@ public class SLinkedList_stubs<E>  {
 			return -1;
 		
 	
-		else { 	// code written by Zhanna Klimanova
+		else { 	/** @author zhanna klimanova **/
 			try {
 				while (!cur.getElement().equals(e)) {
 					cur = cur.getNext();
@@ -225,7 +225,7 @@ public class SLinkedList_stubs<E>  {
 					size--;
 					return cur.getElement();
 				}
-				else if (i == size-1) { // code written by Zhanna Klimanova 
+				else if (i == size-1) { /** @author zhanna klimanova **/
 					SNode<E> current = tail;
 					SNode<E> beforeCurrent = getNode(size-2);
 					beforeCurrent.next = null;
@@ -233,7 +233,7 @@ public class SLinkedList_stubs<E>  {
 					return current.getElement();
 				}
 				// we can assume that i > 0;
-				else {  // code written by Zhanna Klimanova 
+				else {  /** @author zhanna klimanova **/
 					SNode<E> elementToRemove = getNode(i);
 					SNode<E> elementPrevious = getNode(i-1);
 					elementPrevious.next = elementToRemove.next;
@@ -288,17 +288,21 @@ public class SLinkedList_stubs<E>  {
      *   To do it, we walk from head to tail, maintaining a partition of the nodes into two
      *   lists:  the nodes up to the current node, and the nodes beyond the current node.
      */
-
-    public void reverse() {
-        SNode<E> headLeft, headRight, tmp;
+	
+    public void reverse() { /** @author zhanna klimanova **/
+        SNode<E> a, b, temp;
         if (head != null){
-            headLeft = null;
-            headRight = head;
-            
-            // ADD CODE HERE
-            
+            a = null; // always pointing to the element before
+            b = head; // pointing to the element ahead
+            while (b != null) {
+            	temp = b.next;
+            	b.next = a;
+            	a = b; 
+            	b = temp;
+            	
+            }
             tail = head;
-            head = headLeft;
+            head = a;
         }
     } 
     
@@ -334,7 +338,7 @@ public class SLinkedList_stubs<E>  {
 			if (i == 0){  	//  only one node in list
 				return head; 
 			}
-			// code written by Zhanna Klimanova
+			/** @author zhanna klimanova **/
 			else if (i == size-1) {
 				return tail;
 			}

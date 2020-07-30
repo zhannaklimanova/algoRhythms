@@ -86,11 +86,13 @@ public class DLinkedList_stubs<E> {
 		  return size;
 	  }
 
-	  public void remove(int  index){
+	  public void remove(int  index){ /** @author Zhanna Klimanova **/
 		  DNode<E> node  = getNode(index);    
-		  
-	      //  ADD YOUR CODE HERE
-	  
+		  node.next.prev = node.prev;
+		  node.prev.next = node.next;
+		  node.next = null;
+		  node.prev = null;
+		  size--;
 	  }
 	 
 	  /*
@@ -100,15 +102,17 @@ public class DLinkedList_stubs<E> {
 	   *    references should be swapped.   
 	   */
 
-	  public void reverse(){
+	  public void reverse(){ /** @author zhanna klimanova **/
 		  DNode<E>  cur,  curNext;
 		  cur = dummyHead.next;
-		  
-		  //  swap the next and prev references,  and advance cur
-		  
-          //  ADD YOUR CODE HERE
-		  
-		  
+		  //  swap the next and prev references of cur, then advance cur
+		  while (cur != dummyTail) {
+			  curNext = cur.next; 
+			  cur.next = cur.prev;
+			  cur.prev = curNext;
+			  cur = curNext;
+		  }
+         
 		  //  All nodes in the list point have correct prev and next field, except for the dummy nodes.
 		  
 		  dummyTail.next = dummyTail.prev;
@@ -174,12 +178,13 @@ public class DLinkedList_stubs<E> {
 	   *  the dummy tail node. 
 	   */
 	  
-	  private  void  addBefore(E element, DNode<E> givenNode ){
-		    DNode<E>   newNode = new DNode<E>(element);	
-		    
-		    //  ADD YOUR CODE HERE
-		    
-		    size++;
+	  public void addBefore(E element, DNode<E> givenNode ){ /** @author Zhanna Klimanova **/
+		  DNode<E> newNode = new DNode<E>(element);	
+		  givenNode.prev.next = newNode;
+		  newNode.prev = givenNode.prev;
+		  givenNode.prev = newNode;
+		  newNode.next = givenNode;    
+		  size++;
 	  }
 	  
 	  class DNode<T> {    // use a different generic parameter here to avoid
