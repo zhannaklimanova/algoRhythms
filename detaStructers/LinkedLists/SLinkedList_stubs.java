@@ -2,7 +2,7 @@ package LinkedLists;
 
 /**
  * A basic implementation of some methods in a singly linked list class.
- * @author Michael Langer 
+ * @author Michael Langer and several methods completed by @author zhanna klimanova
  * 
  * (Most of this code was adapted from textbooks 
  * e.g. by Frank Carrano,  Mark Allen Weiss, 

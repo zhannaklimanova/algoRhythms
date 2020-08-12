@@ -1,4 +1,4 @@
-package Java_algoRhythms;
+package Java_Rhythms;
 
 import java.util.Random;
 import java.util.Scanner;
