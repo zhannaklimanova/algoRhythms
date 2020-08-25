@@ -9,7 +9,7 @@ public class SortingAlgorithms {
 	 * 2. sorts each half recursively 
 	 * 3. merge the sorted half maintaining the order
 	 * 
-	 * Best case: O(nlog(n))
+	 * Best case: Ω(nlog(n))
 	 * Worst case: O(nlog(n))
 	 * 
 	 * mergeSort is more efficient and works faster than quickSort
@@ -71,7 +71,7 @@ public class SortingAlgorithms {
 	 * 3. sort the left part and the right part recursively
 	 * 4. keep repeating until there's nothing left to sort
 	 * 
-	 * Best case: O(nlog(n))
+	 * Best case: Ω(nlog(n))
 	 * Worst case: O(n^2) when list is already sorted in either ascending or descending order
 	 * 
 	 * quickSort is more efficient and works faster than mergeSort
@@ -113,7 +113,7 @@ public class SortingAlgorithms {
 	 * bubbleSort maintains a sorted list at the end and 
 	 * add biggest elements one by one.
 	 * 
-	 * Best case: O(n) when there's no swapping and list is sorted initially
+	 * Best case: Ω(n) when there's no swapping and list is sorted initially
 	 * Worst case: O(n^2) 
 	 */
 	
@@ -142,7 +142,7 @@ public class SortingAlgorithms {
 	 * 1. a sorted part, initially empty, in which elements are sorted
 	 * 2. a "rest" part, initially of size N, in which elements can be in any order
 	 * 
-	 * Best case: O(n^2)
+	 * Best case: Ω(n^2)
 	 * Worst case: O(n^2)
 	 */
 	public static void selectionSort(int[] list) {
@@ -171,7 +171,7 @@ public class SortingAlgorithms {
 	 * Like selection sort we keep an unsorted part of the list and a sorted part and 
 	 * at each step we add an element from the unsorted region to the sorted region.
 	 * 
-	 * Best case: O(n) already sorted list; the algorithm iterates n times but at each time 
+	 * Best case: Ω(n) already sorted list; the algorithm iterates n times but at each time 
 	 * it does nothing (constant time to look and realize it needs to do nothing)
 	 * Worst case: O(n^2) 
 	 * 
