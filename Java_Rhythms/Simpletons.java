@@ -1,5 +1,7 @@
-package Java_Rhythms;
+package Java_algoRhythms;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,8 +14,7 @@ public class Simpletons {
 	 * 
 	 */
 	
-	/* 
-	 * Characters#
+	/* Characters#
 	 * charRightShift takes a character c and an integer n as inputs, 
 	 * and returns a character. If the character received as input
 	 * is a lower case letter of the English alphabet, the method
@@ -232,7 +233,6 @@ public class Simpletons {
 	/* Arrays#
 	 * intersection method takes two integer arrays as input and returns
 	 * an array corresponding to the intersection of the two arrays.
-	 * This is a linear search in a way. It is also possible to sort.
 	 */
 	public static int[] intersection(int[] array1, int[] array2) { 
 		int[] intersectionArray = new int[0];
@@ -513,15 +513,73 @@ public class Simpletons {
 	}
 	
 	/* Arrays#
-	 * reverse reverses the elements of an array list, which uses a constant amount 
+	 * reverse_iterative reverses the elements of an array list, which uses a constant amount 
 	 * of additional space. A new array cannot be created, but the elements within the 
 	 * original array must be reversed. 
 	 */
-	public static int[] reverse(int[] array) {
+	public static int[] reverse_iterative(int[] array) {
 		for (int i = 0; i < array.length/2; i++) {
 			swap(array, i, array.length-1-i);
 		}
 		return array;
+	}
+	
+	/* Recursion# ArrayLists#
+	 * reverse_recursive reverses the elements of an array list, using recursion.
+	 */
+	public static void reverse_recursive(ArrayList<Integer> array) {
+		if (array.size() == 1) {
+			return;
+		}
+		int firstElement = array.remove(0);
+		reverse_recursive(array);
+		array.add(firstElement);
+	}
+	
+	/* ArrayLists# Integers# Recursion#
+	 * sort_recursive sorts the elements of the array in a recursive manner.
+	 */
+	public static void sort_recursive(ArrayList<Integer> array) {
+		if (array.size() == 1) {
+			return;
+		}
+		int minElement = removeMinElement(array);
+		sort_recursive(array);
+		array.add(0, minElement);
+	
+	}
+
+	/* ArrayLists# 
+	 * removeMinElement removes the smallest element in the list.
+	 */
+	public static int removeMinElement(ArrayList<Integer> array) {
+		int currentSmallest = array.get(0);
+		int indexOfSmallest = 0;
+		
+		for (int i = 1; i < array.size(); i++) {
+			if (array.get(i) < currentSmallest) {
+				currentSmallest = array.get(i);
+				indexOfSmallest = i;
+			}
+			continue;
+		}
+		array.remove(array.get(indexOfSmallest));
+		return currentSmallest;
+	}
+	
+	/* Integers# Arrays#
+	 * removeMinElement finds the smallest element in the array.
+	 */
+	public static int findMinElement(int[] array) {
+		int currentSmallest = array[0];
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < currentSmallest) {
+				currentSmallest = array[1];
+			}
+		}
+		return currentSmallest;
+		
 	}
 	
 	/* Arrays# Integers#
@@ -615,5 +673,102 @@ public class Simpletons {
 		 }
 		 newArray[array.length] = element;
 		 return newArray;
+	 }
+	 
+	 /* Recursion# Integers#
+	  * countDown uses iteration to count down from an input value. 
+	  */
+	 public static void countDown_iterative(int n) {
+		for (int i = n; i >= 0; i--) {
+			if (i == 0) {
+				System.out.println("Go!");
+			}
+			else  {
+				if (i == 0) {
+					continue;
+				}
+				else {				
+					System.out.println(i);
+				}
+			}
+		}
+	 }
+	 
+	 /* Recursion# Integers#
+	  * countDown uses recursion to count down from an input value. 
+	  */
+	 public static void countDown_recursive(int n) {
+		 if (n == 0) {
+			 System.out.println("Go!");
+		 }
+		 else {
+			 System.out.println(n);
+			 countDown_recursive(n-1);
+		 }
+	 }
+	 
+	 /* Integers#
+	  * factorial_iterative calculates the factorial of a number in an 
+	  * iterative manner.
+	  */
+	 public static int factorial_iterative(int n) {
+		 int result = 1;
+		 for (int i = 2; i <= n; i++) {
+			 result = result * i; 
+		 }
+		 return result;
+	 }
+	
+	 /* Recursion# Integers#
+	  * factorial_recursive calculates the factorial of a number in an 
+	  * iterative manner.
+	  */
+	 public static int factorial_recursive(int n) {
+		 if (n == 0) {
+			 return 1;
+		 }
+		 else {
+			 return n * factorial_recursive(n-1);
+		 }
+	 }
+	 
+	 /* Integers#
+	  * fibonacci_iterative calculates the sum of a fibonacci number in an 
+	  * iterative manner. Such that fn = fn-1 + fn-2 where the base case f1,f2 = 1.
+	  * 
+	  * Fibonacci sequence: 1,1,2,3,5,8,13,21,34,55,89,144
+	  */
+	 public static int fibonacci_iterative(int n) {
+		 int fib1 = 1;
+		 int fib2 = 1;
+		 int fibn = 0;
+		 
+		 if (n == 0 || n == 1) {
+			 return 1;
+		 }
+		 for (int i = 2; i <= n; i++) {
+			 fibn = fib2 + fib1;
+			 fib1 = fib2;
+			 fib2 = fibn;
+		 }
+		 return fibn;		  
+	 }
+	 
+	 /* Recursive# Integers#
+	  * fibonacci_iterative calculates the sum of a fibonacci number in an 
+	  * recursive manner. Such that fn = fn-1 + fn-2 where the base case f1,f2 = 1.
+	  * 
+	  * Considering bigger numbers of n, this algorithm becomes highly inefficient 
+	  * as it forms a tree like structure during execution and performs calculations
+	  * in several branches at a time (2^n) which increases time complexity. 
+	  * 
+	  * Fibonacci sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233 (starting on index 0)
+	  */
+	 public static int fibonacci_recursive(int n) {
+		 if (n == 0 || n == 1) {
+			 return 1;
+		 }
+		 return fibonacci_recursive(n-1) + fibonacci_recursive(n-2);
+	  
 	 }
 }

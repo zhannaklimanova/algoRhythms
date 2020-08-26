@@ -1,5 +1,6 @@
-package Java_Rhythms;
+package Java_algoRhythms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SimpletonsTester {
@@ -116,11 +117,21 @@ public class SimpletonsTester {
 //		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(a, b)));
 //		System.out.println(Arrays.deepToString(Simpletons.multiplyMatrix(zero1, zero2)));
 		
-		// reverse Tester
+		// reverse_iterative Tester
 //		int[] a = {1, 2, 3, 4};
 //		int[] b = {6,5,4,3,2,1,0};
-//		System.out.println(Arrays.toString(Simpletons.reverse(a)));
-//		System.out.println(Arrays.toString(Simpletons.reverse(b)));
+//		System.out.println(Arrays.toString(Simpletons.reverse_iterative(a)));
+//		System.out.println(Arrays.toString(Simpletons.reverse_iterative(b)));
+		
+		// reverse_recursive Tester
+//		ArrayList<Integer> l = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+//		Simpletons.reverse_recursive(l);
+//		System.out.println(l.toString()); // [5, 4, 3, 2, 1]
+		
+		// sort_recursive Tester
+//		ArrayList<Integer> lp = new ArrayList<Integer>(Arrays.asList(5,9,10,3,1));
+//		Simpletons.sort_recursive(lp);
+//		System.out.println(lp.toString()); // [1, 3, 5, 9, 10]
 		
 		// remove Tester 
 //		int[] i = {1,2,3,4,5};
@@ -136,7 +147,25 @@ public class SimpletonsTester {
 		// addToEnd Tester 
 //		int[] o = {1,2,3,4,5};
 //		System.out.println((Arrays.toString(Simpletons.addToEnd(o, 99))));
-	
+		
+		// countDown_recursive Tester
+//	    Simpletons.countDown_recursive(5);
+		
+		// countDown_iterative Tester
+//	    Simpletons.countDown_iterative(5); 
+		
+		// factorial_iterative Tester
+//		System.out.println(Simpletons.factorial_iterative(5)); // 120
+		
+		// factorial_recursive Tester
+//		System.out.println(Simpletons.factorial_recursive(5)); // 120
+		
+		// fibonacci_iterative Tester 
+		// Fibonacci sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233 (starting on index 0)
+//		System.out.println(Simpletons.fibonacci_iterative(12)); // 233
+		
+		// fibonacci_recursive Tester 
+		// Fibonacci sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233 (starting on index 0)
+//		System.out.println(Simpletons.fibonacci_recursive(12)); // 233
 	}
-	
 }
