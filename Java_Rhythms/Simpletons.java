@@ -1,6 +1,5 @@
 package Java_algoRhythms;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -136,9 +135,11 @@ public class Simpletons {
 	
 	/* Arrays#
 	 * findLargestValue takes an array of integers as input and 
-	 * returns the largest value in the array. 
+	 * returns the largest value in the array. To make this method 
+	 * more efficient it would be better to sort the array and take
+	 * the last element. 
 	 */
-	public static int findLargestValue(int[] array) { // TODO rewrite this using a sorting algorithm and then just take the last element
+	public static int findLargestValue(int[] array) { 
 		if (array == null) {
 			throw new NullPointerException("The input is incorrect; it must be a non-null array of a certain size");
 		}
@@ -236,7 +237,7 @@ public class Simpletons {
 	 */
 	public static int[] intersection(int[] array1, int[] array2) { 
 		int[] intersectionArray = new int[0];
-		int counter = 0; // TODO you can do binary search
+		int counter = 0; 
 		
 		for (int iValue: array1) {
 			for (int jValue: array2) {
@@ -771,4 +772,22 @@ public class Simpletons {
 		 return fibonacci_recursive(n-1) + fibonacci_recursive(n-2);
 	  
 	 }
+	 
+		/* Recursion# Characters# 
+		 * towerOfHanoi is a puzzle who's objective is to move the entire stack to another
+		 * rod, following 3 rules: 
+		 * 1. Only 1 disk can be moved at a time
+		 * 2. Each move consists of taking the upper disk from one of the stacks and placing it
+		 * on top of another stack (only topmost disk can be moved)
+		 * 3. No disk can be placed on top of a smaller disk
+		 */
+		public static void towerOfHanoi(int n, char start, char finish, char middle) {
+			if (n == 1) { 
+				System.out.println("Moving disk 1 from rod " +  start + " to rod " + finish); 
+				return; 
+			} 
+			towerOfHanoi(n-1, start, middle, finish); 
+			System.out.println("Moving disk " + n + " from rod " +  start + " to rod " + finish);
+			towerOfHanoi(n-1, middle, finish, start); 
+		} 
 }

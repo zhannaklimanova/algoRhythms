@@ -167,5 +167,10 @@ public class SimpletonsTester {
 		// fibonacci_recursive Tester 
 		// Fibonacci sequence: 1,1,2,3,5,8,13,21,34,55,89,144,233 (starting on index 0)
 //		System.out.println(Simpletons.fibonacci_recursive(12)); // 233
+	
+		// towerOfHanoi Tester
+//      Simpletons.towerOfHanoi(3, 'A', 'C', 'B');  // A, B and C are names of rods 
+     
+	
 	}
 }
